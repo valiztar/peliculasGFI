@@ -21,7 +21,6 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private authenticationService: AuthenticationService
   ) {
-    // redirect to home if already logged in
     if (this.authenticationService.currentUserValue) {
       this.router.navigate(["/home"]);
     }
@@ -33,13 +32,11 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  // convenience getter for easy access to form fields
   get f() {
     return this.loginForm.controls;
   }
 
   onSubmit() {
-    // stop here if form is invalid
     if (this.loginForm.invalid) {
       return;
     }

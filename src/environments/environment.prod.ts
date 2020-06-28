@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  baseURL: "http://localhost:4200",
+  baseURL: "https://peliculasgfi.web.app",
   apiKey: "f12ba140",
 };
