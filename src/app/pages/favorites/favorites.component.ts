@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { ServerSentEventService } from "src/app/core/services/sse.service";
+import { Observable, interval, Subscription } from "rxjs";
 import { FavoritesService } from "src/app/core/services/favorites.service";
 
 @Component({
@@ -8,46 +8,31 @@ import { FavoritesService } from "src/app/core/services/favorites.service";
   styleUrls: ["./favorites.component.scss"],
 })
 export class FavoritesComponent implements OnInit {
+  private updateSubscription: Subscription;
+
   constructor(private favoritesService: FavoritesService) {}
 
   movies: Movie[] = [];
   moviesList: Movie[] = [];
-  movieDemo = {
-    Poster:
-      "https://m.media-amazon.com/images/M/MV5BMjhiMzgxZTctNDc1Ni00OTIxLTlhMTYtZTA3ZWFkODRkNmE2XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
-    Title: "Breaking Bad",
-    Type: "series",
-    Year: "2008–2013",
-    imdbID: "tt0903747",
-  };
-  ngOnInit() {
-    console.log(this.moviesList);
-    this.getMovies();
-    console.log(this.moviesList);
-    //this.moviesList = this.favoritesService.getFavorites();
-  }
 
-  /* addMovies() {
-    let movie: Movie = {
-      Poster:
-        "https://m.media-amazon.com/images/M/MV5BMjhiMzgxZTctNDc1Ni00OTIxLTlhMTYtZTA3ZWFkODRkNmE2XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
-      Title: "Breaking Bad",
-      Type: "series",
-      Year: "2008–2013",
-      imdbID: "tt0903747",
-    };
-    this.favoritesService.addfavorites(movie);
-  } */
+  ngOnInit() {
+    //this.updateSubscription = interval(1000).subscribe((val) => {
+    this.getMovies();
+    // });
+  }
 
   getMovies() {
     this.favoritesService.getFavorites().subscribe((movies: Movie[]) => {
       movies = movies || [];
       this.moviesList = movies;
-      console.log(this.moviesList);
     });
   }
 
-  inFavorites(movie: Movie) {
+  inFavorites(movie: Movie): boolean {
     return this.moviesList.some((f) => f.imdbID === movie.imdbID);
+  }
+
+  refreshList(imdbID) {
+    this.moviesList = this.moviesList.filter((f) => f.imdbID != imdbID);
   }
 }

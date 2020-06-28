@@ -9,13 +9,6 @@ const routes: Routes = [
       import("./pages/login/login.module").then((m) => m.LoginModule),
   },
   {
-    path: "customers",
-    loadChildren: () =>
-      import("./pages/customers/customers.module").then(
-        (m) => m.CustomersModule
-      ),
-  },
-  {
     path: "home",
     canActivate: [AuthGuard],
     loadChildren: () =>

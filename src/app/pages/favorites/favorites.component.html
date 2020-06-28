@@ -7,6 +7,7 @@
           *ngFor="let movie of moviesList"
           [movie]="movie"
           [inFavorites]="inFavorites(movie)"
+          (refreshList)="refreshList($event)"
         ></app-postercard>
       </div>
     </div>

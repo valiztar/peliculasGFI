@@ -11,8 +11,8 @@ import { FavoritesService } from "src/app/core/services/favorites.service";
 export class HomeComponent implements OnInit {
   searchForm: FormGroup;
 
-  movies = [];
-  favoriteList = [];
+  movies: Movie[] = [];
+  favoriteList: Movie[] = [];
 
   constructor(
     private moviesService: MoviesService,
@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
     this.searchForm = this.formBuilder.group({
       search: [""],
     });
-    this.favoritesService.getFavorites().subscribe((movies: any[]) => {
+    this.favoritesService.getFavorites().subscribe((movies: Movie[]) => {
       movies = movies || [];
       this.favoriteList = movies;
     });
@@ -41,14 +41,14 @@ export class HomeComponent implements OnInit {
     return this.searchForm.controls["search"];
   }
 
-  search(keyword) {
+  search(keyword: string) {
     this.moviesService.getSearch(keyword).subscribe((movies) => {
       if (movies.Search) this.movies = movies.Search;
       else this.movies = [];
     });
   }
 
-  inFavorites(movie: any) {
+  inFavorites(movie: Movie) {
     return this.favoriteList.some((f) => f.imdbID === movie.imdbID);
   }
 }

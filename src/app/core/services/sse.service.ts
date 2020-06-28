@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { LocalStorage } from "@ngx-pwa/local-storage";
+import { environment } from "src/environments/environment";
 
 interface Product {
   id: number;
@@ -11,7 +12,7 @@ interface Product {
   providedIn: "root",
 })
 export class ServerSentEventService {
-  private api = "http://localhost:4200/stream";
+  private api = `${environment.baseURL}/stream`;
   private eventSource: EventSource;
 
   constructor(private localStorage: LocalStorage) {
