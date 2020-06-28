@@ -1,0 +1,24 @@
+<div class="row h-100">
+  <div
+    class="col-12 col-md-4 offset-md-4 offset-0 d-flex justify-content-center align-items-center"
+  >
+    <div class="card w-100">
+      <div class="row no-gutters">
+        <div class="col-auto">
+          <img [src]="movie.Poster" class="img-fluid" alt="" />
+        </div>
+        <div class="col m-2">
+          <div class="card-block px-2">
+            <h3 class="card-title font-weight-bold">{{ movie.Title }}</h3>
+            <p class="card-text">Type: {{ movie.Type }}</p>
+            <p class="card-text">Year: {{ movie.Year }}</p>
+            <button (click)="viewPlot()" class="btn btn-primary" *ngIf="!plot">
+              view plot
+            </button>
+            <p class="card-text" *ngIf="plot">{{ plot }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

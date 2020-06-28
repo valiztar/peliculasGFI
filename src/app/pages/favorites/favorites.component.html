@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="card-columns mt-5" *ngIf="moviesList">
+        <app-postercard
+          class="w-20"
+          *ngFor="let movie of moviesList"
+          [movie]="movie"
+          [inFavorites]="inFavorites(movie)"
+        ></app-postercard>
+      </div>
+    </div>
+  </div>
+</div>

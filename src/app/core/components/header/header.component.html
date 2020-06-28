@@ -1,0 +1,50 @@
+<!-- Just an image -->
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container order-1 order-sm-0">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <span class="navbar-brand d-inline-block d-sm-none mr-0" href="#">
+      <span class="text-primary ml-auto font-weight-bold order-0 order-sm-1"
+        >{{ userName }}
+        <button
+          class="btn btn-primary font-weight-bold ml-3"
+          (click)="logout()"
+        >
+          Logout
+        </button></span
+      >
+    </span>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mr-auto">
+        <li
+          class="nav-item text-center mx-2 h5 text-uppercase"
+          *ngFor="let option of options; index as i"
+        >
+          <a
+            class="nav-link"
+            aria-current="page"
+            [routerLink]="'/' + option"
+            routerLinkActive="active"
+            >{{ option }}</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+  <span
+    class="text-primary ml-auto font-weight-bold order-0 order-sm-1 d-none d-sm-block"
+    >{{ userName }}
+    <button class="btn btn-primary font-weight-bold ml-3" (click)="logout()">
+      Logout
+    </button></span
+  >
+</nav>

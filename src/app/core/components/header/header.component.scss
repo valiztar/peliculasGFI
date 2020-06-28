@@ -1,0 +1,16 @@
+@import "src/theme.scss";
+
+.navbar {
+  background-color: $primary-background;
+  .nav-link {
+    font-weight: bold;
+    color: #b7bbbe;
+    &.active {
+      color: white;
+      border-bottom: $primary-color solid 3px;
+    }
+  }
+}
+.navbar-light .navbar-toggler {
+  background: $primary-color;
+}

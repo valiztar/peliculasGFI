@@ -1,0 +1,31 @@
+<div class="card bg-dark text-white link">
+  <img
+    class="card-img"
+    [src]="movie.Poster"
+    alt="Card image"
+    onerror="this.onerror=null; this.src='https://www.reelviews.net/resources/img/default_poster.jpg'"
+  />
+  <div class="card-img-overlay">
+    <div
+      class="d-flex justify-content-center align-items-center h-100 flex-column"
+    >
+      <button
+        *ngIf="!inFavorites"
+        class="btn option align-self-center mt-auto"
+        (click)="addFavorites()"
+      >
+        <i class="fa fa-plus" aria-hidden="true"></i>
+      </button>
+      <button
+        *ngIf="inFavorites"
+        class="btn option align-self-center mt-auto"
+        (click)="removeFavorites()"
+      >
+        <i class="fa fa-trash" aria-hidden="true"></i>
+      </button>
+      <button class="btn details mt-auto" (click)="viewDetail()">
+        View Details
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+@import "src/theme.scss";
+.link {
+  cursor: pointer;
+
+  .card-img-overlay {
+    display: none;
+    background-color: $primary-background;
+    &:hover {
+      display: block;
+    }
+    .option {
+      font-size: 4rem;
+      color: white;
+      &:hover {
+        color: $primary-color;
+      }
+    }
+    .details {
+      font-weight: bold;
+      font-size: 2rem;
+      width: 100%;
+      background-color: transparent;
+      color: white;
+      border: white 1px solid;
+      &:hover {
+        border-color: $primary-color;
+        color: $primary-color;
+      }
+    }
+  }
+  .card-img:hover {
+    border-color: $primary-color;
+    box-shadow: 0 1px 1px $primary-background inset, 0 0 8px $primary-color;
+    outline: 0 none;
+    & + .card-img-overlay {
+      display: block;
+    }
+  }
+}

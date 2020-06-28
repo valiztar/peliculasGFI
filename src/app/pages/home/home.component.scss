@@ -1,0 +1,26 @@
+@import "src/theme.scss";
+.search {
+  height: 3rem;
+  border-radius: 15px;
+  font-size: 1.5rem;
+  padding: 1rem;
+  color: $primary-color;
+  background: $primary-background;
+  border-color: white;
+  text-align: center;
+  &:focus {
+    border-color: $primary-color;
+    box-shadow: 0 1px 1px $primary-background inset, 0 0 8px $primary-color;
+    outline: 0 none;
+  }
+  &.fill {
+    border-color: $primary-color;
+    box-shadow: 0 1px 1px $primary-background inset, 0 0 8px $primary-color;
+    outline: 0 none;
+  }
+  &::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    opacity: 0.8; /* Firefox */
+  }
+}

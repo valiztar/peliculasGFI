@@ -1,0 +1,54 @@
+/* Made with love by Mutiullah Samim*/
+
+@import "src/theme.scss";
+
+#login {
+  height: 100%;
+  align-content: center;
+  .card {
+    height: 370px;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 400px;
+    background-color: $primary-background !important;
+  }
+  .social_icon {
+    position: absolute;
+    right: 20px;
+    top: -45px;
+    span {
+      font-size: 60px;
+      margin-left: 10px;
+      color: $primary-color;
+      &:hover {
+        color: white;
+        cursor: pointer;
+      }
+    }
+  }
+  .card-header h3 {
+    color: white;
+  }
+
+  .input-group-prepend span {
+    width: 50px;
+    background-color: $primary-color;
+    color: black;
+    border: 0 !important;
+  }
+
+  input:focus {
+    outline: 0 0 0 0 !important;
+    box-shadow: 0 0 0 0 !important;
+  }
+
+  .login_btn {
+    color: black;
+    background-color: $primary-color;
+    width: 100px;
+    &:hover {
+      color: black;
+      background-color: white;
+    }
+  }
+}
