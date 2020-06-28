@@ -7,7 +7,7 @@ import { map } from "rxjs/operators";
   providedIn: "root",
 })
 export class MoviesService {
-  baseURL = `http://www.omdbapi.com/?apikey=${environment.apiKey}&`;
+  baseURL = `https://www.omdbapi.com/?apikey=${environment.apiKey}&`;
 
   constructor(private http: HttpClient) {}
 
